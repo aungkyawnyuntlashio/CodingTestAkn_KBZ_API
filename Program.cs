@@ -1,3 +1,7 @@
+using CodingTestAkn_KBZ_API.DBContexts;
+using CodingTestAkn_KBZ_API.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<DB_Contexts>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("KBZ_DB")));
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 var app = builder.Build();
 

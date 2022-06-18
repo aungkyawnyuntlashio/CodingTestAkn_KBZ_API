@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTestAkn_KBZ_API", "CodingTestAkn_KBZ_API.csproj", "{DECFD8A5-41AE-4EF0-AF3F-A2455C3FDC37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DECFD8A5-41AE-4EF0-AF3F-A2455C3FDC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECFD8A5-41AE-4EF0-AF3F-A2455C3FDC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECFD8A5-41AE-4EF0-AF3F-A2455C3FDC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECFD8A5-41AE-4EF0-AF3F-A2455C3FDC37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51C467BA-19E7-422B-B834-544A836171D2}
+	EndGlobalSection
+EndGlobal

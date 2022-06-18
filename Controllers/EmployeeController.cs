@@ -19,52 +19,93 @@ namespace CodingTestAkn_KBZ_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var employees = _employeeRepository.GetAllEmployee();
-            return new OkObjectResult(employees);
+            try
+            {
+                var employees = _employeeRepository.GetAllEmployee();
+                return new OkObjectResult(new { message = "Success", data=employees, error = false });
+            }
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { message = ex.Message, error = true });
+            }
+            
         }
 
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var employees = _employeeRepository.GetEmployeeByID(id);
-            return new OkObjectResult(employees);
+            try
+            {
+                var employees = _employeeRepository.GetEmployeeByID(id);
+                return new OkObjectResult(new { message = "Success", data=employees, error = false });
+            }
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { message = ex.Message, error = true });
+            }
+            
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
         public IActionResult Post([FromBody] Employee employee)
         {
-            using (var scope = new TransactionScope())
+            try
             {
-                _employeeRepository.InsertEmployee(employee);
-                scope.Complete();
-                return CreatedAtAction(nameof(Get), new { id = employee.Id }, employee);
+                using (var scope = new TransactionScope())
+                {
+                    _employeeRepository.InsertEmployee(employee);
+                    scope.Complete();
+                    var result = CreatedAtAction(nameof(Get), new { id = employee.Id }, employee);
+                    return new OkObjectResult(new { message="Success",data= result.Value ,error=false});
+                }
             }
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { message = ex.Message, error = true });
+            }
+            
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] Employee employee)
         {
-            if (employee != null)
+            try
             {
-                using (var scope = new TransactionScope())
+                if (employee != null)
                 {
-                    _employeeRepository.UpdateEmployee(employee);
-                    scope.Complete();
-                    return new OkResult();
+                    using (var scope = new TransactionScope())
+                    {
+                        _employeeRepository.UpdateEmployee(employee);
+                        scope.Complete();
+                        var result = CreatedAtAction(nameof(Get), new { id = employee.Id }, employee);
+                        return new OkObjectResult(new { message = "Success", data = result.Value, error = false });
+                    }
                 }
+                return new NoContentResult();
             }
-            return new NoContentResult();
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { message = ex.Message, error = true });
+            }            
         }
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _employeeRepository.DeleteEmployee(id);
-            return new OkResult();
+            try
+            {
+                _employeeRepository.DeleteEmployee(id);
+                return new OkObjectResult(new { message = "Success", error = false });
+            }
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { message = ex.Message, error = true });
+            }
+            
         }
     }
 }

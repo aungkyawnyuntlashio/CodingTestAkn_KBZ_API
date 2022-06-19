@@ -11,8 +11,8 @@ namespace CodingTestAkn_KBZ_API.Controllers
     [ApiController]
     public class HolidayController : ControllerBase
     {
-        private readonly HolidayRepository _holidayRepository;
-        public HolidayController(HolidayRepository holidayRepository)
+        private readonly IHolidayRepository _holidayRepository;
+        public HolidayController(IHolidayRepository holidayRepository)
         {
             _holidayRepository = holidayRepository;
         }

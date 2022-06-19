@@ -10,7 +10,8 @@ namespace CodingTestAkn_KBZ_API.DBContexts
         }
 
         public DbSet<Employee> Employees { get; set; }
-
+        public DbSet<Holiday> Holidays { get; set; }
+        public DbSet<Leave> Leaves { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().HasData(

@@ -26,7 +26,7 @@ namespace CodingTestAkn_KBZ_API.Controllers
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message, error = true });
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
             }
             
         }
@@ -42,7 +42,7 @@ namespace CodingTestAkn_KBZ_API.Controllers
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message, error = true });
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
             }
             
         }
@@ -63,13 +63,13 @@ namespace CodingTestAkn_KBZ_API.Controllers
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message, error = true });
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
             }
             
         }
 
-        // PUT api/<EmployeeController>/5
-        [HttpPut("{id}")]
+        // PUT api/<EmployeeController>
+        [HttpPut]
         public IActionResult Put([FromBody] Employee employee)
         {
             try
@@ -80,15 +80,14 @@ namespace CodingTestAkn_KBZ_API.Controllers
                     {
                         _employeeRepository.UpdateEmployee(employee);
                         scope.Complete();
-                        var result = CreatedAtAction(nameof(Get), new { id = employee.Id }, employee);
-                        return new OkObjectResult(new { message = "Success", data = result.Value, error = false });
+                        return new OkObjectResult(new { message = "Success", data = employee, error = false });
                     }
                 }
                 return new NoContentResult();
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message, error = true });
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
             }            
         }
 
@@ -103,7 +102,7 @@ namespace CodingTestAkn_KBZ_API.Controllers
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message, error = true });
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
             }
             
         }

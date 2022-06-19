@@ -12,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DB_Contexts>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("KBZ_DB")));
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<ILeaveRepository, LeaveRepository>();
+builder.Services.AddTransient<IHolidayRepository, HolidayRepository>();
 
 var app = builder.Build();
 

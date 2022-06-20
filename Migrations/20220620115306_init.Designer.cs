@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodingTestAkn_KBZ_API.Migrations
 {
     [DbContext(typeof(DB_Contexts))]
-    [Migration("20220619021459_addEmployeeandLeave")]
-    partial class addEmployeeandLeave
+    [Migration("20220620115306_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,7 +75,7 @@ namespace CodingTestAkn_KBZ_API.Migrations
                             Designation = "Web Developer",
                             EmployeeCode = "E-00001",
                             EmployeeName = "Mg Thein",
-                            JoinDate = new DateTime(2022, 6, 19, 8, 44, 59, 448, DateTimeKind.Local).AddTicks(71),
+                            JoinDate = new DateTime(2022, 6, 20, 18, 23, 6, 740, DateTimeKind.Local).AddTicks(8667),
                             Mobile = "09977525810"
                         });
                 });

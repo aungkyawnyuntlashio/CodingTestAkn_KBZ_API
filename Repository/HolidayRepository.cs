@@ -19,6 +19,11 @@ namespace CodingTestAkn_KBZ_API.Repository
             Save();
         }
 
+        public Holiday FindHolidayByDate(DateTime holidayDate)
+        {
+            return _dbContext.Holidays.Where(h => h.HolidayDate == Convert.ToDateTime(holidayDate.ToString("yyyy-MM-dd"))).FirstOrDefault();
+        }
+
         public IEnumerable<Holiday> GetAllHoliday()
         {
             return _dbContext.Holidays.ToList();

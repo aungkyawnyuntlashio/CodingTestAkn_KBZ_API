@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodingTestAkn_KBZ_API.Model
 {
@@ -8,4 +9,7 @@ namespace CodingTestAkn_KBZ_API.Model
         [Required] public string? HolidayTitle { get; set; }
         [Required] public DateTime HolidayDate { get; set; }
     }
+
+    [NotMapped]
+    public class HolidayDateModel { public DateTime HolidayDate { get; set; }}
 }

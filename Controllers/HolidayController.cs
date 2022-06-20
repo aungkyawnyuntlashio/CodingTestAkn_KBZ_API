@@ -67,6 +67,21 @@ namespace CodingTestAkn_KBZ_API.Controllers
             }
         }
 
+        // POST api/<HolidayController>
+        [HttpPost("FindHolidayByDate")]
+        public IActionResult FindHolidayByDate([FromBody] HolidayDateModel holiday)
+        {
+            try
+            {
+                var result=_holidayRepository.FindHolidayByDate(holiday.HolidayDate);
+                    return new OkObjectResult(new { message = "Success", data = result, error = false });
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(new { message = ex.Message, error = true });
+            }
+        }
+
         // PUT api/<HolidayController>
         [HttpPut]
         public IActionResult Put(Holiday holiday)

@@ -6,6 +6,7 @@ namespace CodingTestAkn_KBZ_API.Repository
         IEnumerable<Holiday> GetAllHoliday();
 
         Holiday GetHolidayByID(int holidayId);
+        Holiday FindHolidayByDate(DateTime holidayDate);
         void InsertHoliday(Holiday holiday);
         void DeleteHoliday(int holidayId);
         void UpdateHoliday(Holiday holiday);

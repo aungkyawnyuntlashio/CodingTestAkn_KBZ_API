@@ -4,7 +4,7 @@
 
 
 ## Data Migrations Scripts
-### dotnet ef migrations add init
-### dotnet ef database update
+### `dotnet ef migrations add init`
+### `dotnet ef database update`
 
 
